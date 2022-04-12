@@ -22,11 +22,11 @@ namespace Ryuu.LightWeightInputSystem
                     Value = 0;
                 }
 
-                if (LWI.Input(inputData.KeyCode, InputType.Down))
+                if (LWIS.Input(inputData.KeyCode, InputType.Down))
                 {
                     timer.SetCountDown().Start();
                 }
-                else if (LWI.Input(inputData.KeyCode, InputType.Up))
+                else if (LWIS.Input(inputData.KeyCode, InputType.Up))
                 {
                     if (!timer.IsStop)
                     {

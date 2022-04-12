@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Ryuu.LightWeightInputSystem
 {
-    public static class LWI
+    public static class LWIS
     {
         public static bool Input(KeyCode code, InputType type) => type switch
         {

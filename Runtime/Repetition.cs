@@ -30,7 +30,7 @@ namespace Ryuu.LightWeightInputSystem
                     Value = 0;
                 }
 
-                if (!LWI.Input(inputData.KeyCode, InputType.Down))
+                if (!LWIS.Input(inputData.KeyCode, InputType.Down))
                 {
                     return;
                 }

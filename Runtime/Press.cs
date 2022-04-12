@@ -18,11 +18,11 @@ namespace Ryuu.LightWeightInputSystem
             Updater = updater == null ? Object.FindObjectOfType<Updater>() : updater;
             Updater.OnUpdate += () =>
             {
-                if (LWI.Input(inputData.KeyCode, InputType.Down))
+                if (LWIS.Input(inputData.KeyCode, InputType.Down))
                 {
                     timer.SetCountDown().Start();
                 }
-                else if (LWI.Input(inputData.KeyCode, InputType.Up))
+                else if (LWIS.Input(inputData.KeyCode, InputType.Up))
                 {
                     timer.Stop();
                 }

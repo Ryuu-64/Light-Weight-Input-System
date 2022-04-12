@@ -21,7 +21,7 @@ namespace Ryuu.LightWeightInputSystem
             Updater = updater == null ? UnityEngine.Object.FindObjectOfType<Updater>() : updater;
             Updater.OnUpdate += () =>
             {
-                if (!LWI.Input(inputData.KeyCode, InputType.Hold))
+                if (!LWIS.Input(inputData.KeyCode, InputType.Hold))
                 {
                     if (timer.IsStop)
                     {
@@ -31,7 +31,7 @@ namespace Ryuu.LightWeightInputSystem
                     }
                 }
 
-                if (!LWI.Input(inputData.KeyCode, InputType.Down))
+                if (!LWIS.Input(inputData.KeyCode, InputType.Down))
                 {
                     return;
                 }
