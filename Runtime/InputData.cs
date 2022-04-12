@@ -5,6 +5,7 @@
 
 namespace Ryuu.LightWeightInputSystem
 {
+    [SerializeField]
     public class InputData
     {
         public KeyCode KeyCode;
