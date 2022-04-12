@@ -5,19 +5,12 @@
 
 namespace Ryuu.LightWeightInputSystem
 {
-    [SerializeField]
     public class InputData
     {
         public KeyCode KeyCode;
         public InputType InputType;
 
-        public InputData(KeyCode keyCode)
-        {
-            KeyCode = keyCode;
-            InputType = InputType.None;
-        }
-
-        public InputData(KeyCode keyCode, InputType inputType)
+        public InputData(KeyCode keyCode, InputType inputType = InputType.None)
         {
             KeyCode = keyCode;
             InputType = inputType;
