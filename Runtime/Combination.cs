@@ -9,15 +9,16 @@ namespace Ryuu.LightWeightInputSystem
     {
         public Updater Updater { get; set; }
         public Action OnActive { get; set; }
+        public Action OnInActive { get; set; }
         [SerializeField] public bool Bool { get; set; }
         [SerializeField] public float Value { get; set; }
 
-        public Combination(IReadOnlyCollection<IBool> list, Updater updater = null)
+        public Combination(IReadOnlyCollection<InputData> list, Updater updater = null)
         {
             Updater = updater == null ? UnityEngine.Object.FindObjectOfType<Updater>() : updater;
             Updater.OnUpdate += () =>
             {
-                int count = list.Count(@bool => @bool.Bool);
+                int count = list.Count(data => LWIS.Input(data.KeyCode, InputType.Down) || LWIS.Input(data.KeyCode, InputType.Hold));
 
                 if (count == list.Count)
                 {
@@ -27,6 +28,7 @@ namespace Ryuu.LightWeightInputSystem
                 else
                 {
                     Bool = false;
+                    OnInActive?.Invoke();
                 }
             };
         }

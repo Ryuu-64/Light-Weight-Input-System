@@ -2,8 +2,9 @@
 
 namespace Ryuu.LightWeightInputSystem
 {
-    public interface IOnActive
+    public interface IAction
     {
         public Action OnActive { get; set; }
+        public Action OnInActive { get; set; }
     }
 }

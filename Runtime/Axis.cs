@@ -6,6 +6,7 @@ namespace Ryuu.LightWeightInputSystem
     {
         public Updater Updater { get; set; }
         public Action OnActive { get; set; }
+        public Action OnInActive { get; set; }
         public float Value { get; set; }
         public bool Bool { get; set; }
 
@@ -18,17 +19,20 @@ namespace Ryuu.LightWeightInputSystem
                 {
                     Value = 0;
                     Bool = false;
+                    OnInActive?.Invoke();
                 }
 
                 if (negative.Bool)
                 {
                     Value = -1;
+                    OnActive?.Invoke();
                     Bool = true;
                 }
 
                 if (positive.Bool)
                 {
                     Value = 1;
+                    OnActive?.Invoke();
                     Bool = true;
                 }
             };

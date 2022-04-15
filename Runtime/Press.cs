@@ -8,6 +8,7 @@ namespace Ryuu.LightWeightInputSystem
     {
         public Updater Updater { get; set; }
         public Action OnActive { get; set; }
+        public Action OnInActive { get; set; }
         [SerializeField] public bool Bool { get; set; }
         [SerializeField] public float Value { get; set; }
 
@@ -37,6 +38,7 @@ namespace Ryuu.LightWeightInputSystem
                 {
                     Bool = false;
                     Value = 0;
+                    OnInActive?.Invoke();
                 }
             };
         }

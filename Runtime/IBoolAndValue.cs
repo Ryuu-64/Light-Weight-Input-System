@@ -1,6 +1,6 @@
 ﻿namespace Ryuu.LightWeightInputSystem
 {
-    public interface IBoolAndValue : IUpdate, IOnActive, IBool, IValue
+    public interface IBoolAndValue : IUpdate, IAction, IBool, IValue
     {
     }
 }
