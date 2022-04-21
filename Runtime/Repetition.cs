@@ -12,7 +12,7 @@ namespace Ryuu.LightWeightInputSystem
         [SerializeField] public float Value { get; set; }
         [SerializeField] public int Count { get; set; }
 
-        public Repetition(InputData inputData, int count, Updater updater = null)
+        public Repetition(KeyCode keyCode, int count, Updater updater = null)
         {
             Count = count;
             var timer = new Timer(Timer.UpdateMode.Update);
@@ -31,7 +31,7 @@ namespace Ryuu.LightWeightInputSystem
                     Value = 0;
                 }
 
-                if (!LWIS.Input(inputData.KeyCode, InputType.Down))
+                if (!LWIS.Input(keyCode, InputType.Down))
                 {
                     return;
                 }

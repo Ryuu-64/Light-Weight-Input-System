@@ -13,12 +13,12 @@ namespace Ryuu.LightWeightInputSystem
         [SerializeField] public bool Bool { get; set; }
         [SerializeField] public float Value { get; set; }
 
-        public Input(InputData inputData, Updater updater = null)
+        public Input(KeyCode keyCode, InputType inputType, Updater updater = null)
         {
             Updater = updater == null ? UnityEngine.Object.FindObjectOfType<Updater>() : updater;
             Updater.OnUpdate += () =>
             {
-                if (LWIS.Input(inputData.KeyCode, inputData.InputType))
+                if (LWIS.Input(keyCode, inputType))
                 {
                     Bool = true;
                     Value = 1;

@@ -12,7 +12,7 @@ namespace Ryuu.LightWeightInputSystem
         [SerializeField] public float Value { get; set; }
         [SerializeField] public int Count { get; set; }
 
-        public MultiPress(InputData inputData, int count, Updater updater = null)
+        public MultiPress(KeyCode keyCode, int count, Updater updater = null)
         {
             Count = count;
             var timer = new Timer(Timer.UpdateMode.Update);
@@ -22,7 +22,7 @@ namespace Ryuu.LightWeightInputSystem
             Updater = updater == null ? UnityEngine.Object.FindObjectOfType<Updater>() : updater;
             Updater.OnUpdate += () =>
             {
-                if (!LWIS.Input(inputData.KeyCode, InputType.Hold))
+                if (!LWIS.Input(keyCode, InputType.Hold))
                 {
                     if (timer.IsStop)
                     {
@@ -33,7 +33,7 @@ namespace Ryuu.LightWeightInputSystem
                     }
                 }
 
-                if (!LWIS.Input(inputData.KeyCode, InputType.Down))
+                if (!LWIS.Input(keyCode, InputType.Down))
                 {
                     return;
                 }

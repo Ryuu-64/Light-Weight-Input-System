@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 namespace Ryuu.LightWeightInputSystem
 {
@@ -10,7 +11,7 @@ namespace Ryuu.LightWeightInputSystem
         public bool Bool { get; set; }
         public float Value { get; set; }
 
-        public Tap(InputData inputData, Updater updater = null)
+        public Tap(KeyCode keyCode, Updater updater = null)
         {
             var timer = new Timer(Timer.UpdateMode.Update);
             timer.SetTime(0.2f).SetCountDown().Stop();
@@ -24,11 +25,11 @@ namespace Ryuu.LightWeightInputSystem
                     OnInActive?.Invoke();
                 }
 
-                if (LWIS.Input(inputData.KeyCode, InputType.Down))
+                if (LWIS.Input(keyCode, InputType.Down))
                 {
                     timer.SetCountDown().Start();
                 }
-                else if (LWIS.Input(inputData.KeyCode, InputType.Up))
+                else if (LWIS.Input(keyCode, InputType.Up))
                 {
                     if (!timer.IsStop)
                     {

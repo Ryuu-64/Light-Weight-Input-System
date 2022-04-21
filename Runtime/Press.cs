@@ -12,18 +12,18 @@ namespace Ryuu.LightWeightInputSystem
         [SerializeField] public bool Bool { get; set; }
         [SerializeField] public float Value { get; set; }
 
-        public Press(InputData inputData, Updater updater = null)
+        public Press(KeyCode keyCode, Updater updater = null)
         {
             var timer = new Timer(Timer.UpdateMode.Update);
             timer.SetTime(0.15f).SetCountDown().Stop();
             Updater = updater == null ? Object.FindObjectOfType<Updater>() : updater;
             Updater.OnUpdate += () =>
             {
-                if (LWIS.Input(inputData.KeyCode, InputType.Down))
+                if (LWIS.Input(keyCode, InputType.Down))
                 {
                     timer.SetCountDown().Start();
                 }
-                else if (LWIS.Input(inputData.KeyCode, InputType.Up))
+                else if (LWIS.Input(keyCode, InputType.Up))
                 {
                     timer.Stop();
                 }
